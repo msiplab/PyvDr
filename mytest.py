@@ -1,4 +1,5 @@
 import unittest
+import sys
 
 def suite():
     test_suite = unittest.TestSuite()
@@ -9,4 +10,4 @@ def suite():
 
 if __name__ == "__main__":
     mySuite = suite()
-    unittest.TextTestRunner().run(mySuite)
+    sys.exit(unittest.TextTestRunner().run(mySuite).wasSuccessful())
