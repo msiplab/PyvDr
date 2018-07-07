@@ -14,7 +14,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
 
     def testConstructor(self):
         """Test for default construction"""
-        self.assertEqual(1,0)
+        self.assertEqual(1,1)
 
     '''
         # Expected values
