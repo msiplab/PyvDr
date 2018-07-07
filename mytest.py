@@ -11,4 +11,4 @@ def suite():
 if __name__ == "__main__":
     mySuite = suite()
     isok = unittest.TextTestRunner().run(mySuite).wasSuccessful()
-    sys.exit(0 if isok else 1)
+    sys.exit(0 if isok else -1)
