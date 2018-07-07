@@ -3,3 +3,5 @@
     - "3.6"
   script:
     - python mytest.py
+  notifications:
+    slack: msiplab:az71G0xz8VhIR0pcpjawi80y
