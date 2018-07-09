@@ -1,5 +1,6 @@
 import unittest
-#import polyphasematrix1d
+import numpy as np
+import saivdr.dictionary.utility.polyphasematrix1d as ppm
 
 class PolyPhaseMatrix1dTestCase(unittest.TestCase):
     """POLYPHASEMATRIX1dTESTCASE
@@ -12,19 +13,18 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         http://msiplab.eng.niigata-u.ac.jp/
     """
 
-'''
     def testConstructor(self):
         """Test for default construction"""
         # Expected values
         coefsExpctd = []
         # Instantiation of target class
-        self.ppm0 = PolyPhaseMatrix1d()
+        self.ppm0 = ppm.PolyPhaseMatrix1d()
         # Actual values
-        coefsActual = float(self.ppm0)
+        coefsActual = self.ppm0.coefs
         # Evaluation
-        self.verifyEqual(coefsActual,coefsExpctd)
-
-        % Test for construction with initialization
+        self.assertEqual(coefsActual,coefsExpctd)
+'''
+        # Test for construction with initialization
         function testConstructorWithInit(testCase)
 
             % Input coeffficients
@@ -46,8 +46,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
             testCase.verifyEqual(coefsActual,coefsExpctd);
 
         end
-'''
-'''
+
         % Test for object construction
         function testConstructorWithObj(testCase)
 
