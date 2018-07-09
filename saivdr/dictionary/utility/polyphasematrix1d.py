@@ -1,8 +1,9 @@
 class PolyPhaseMatrix1d():
-    pass
-
-    def __init__(self):
-        self.__coefs = []
+    """Poly-Phase Matrix in 1D
+    """
+    
+    def __init__(self,coefs=[]):
+        self.__coefs = coefs
 
     @property
     def coefs(self):

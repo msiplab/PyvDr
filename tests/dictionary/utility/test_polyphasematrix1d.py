@@ -22,31 +22,27 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Actual values
         coefsActual = self.ppm0.coefs
         # Evaluation
-        self.assertEqual(coefsActual,coefsExpctd)
+        np.testing.assert_array_equal(coefsActual,coefsExpctd)        
+
+    def testConstructorWithInit(self):
+        """Test for construction with initialization"""
+
+        # Input coeffficients
+        coefs = np.array([ [1., 3.], [2., 4.] ]);
+
+        # Expected values
+        coefsExpctd = coefs
+
+        # Instantiation of target class
+        self.ppm0 = ppm.PolyPhaseMatrix1d(coefs);
+
+        # Actual values
+        coefsActual = self.ppm0.coefs
+
+        # Evaluation
+        np.testing.assert_array_equal(coefsActual,coefsExpctd)
+
 '''
-        # Test for construction with initialization
-        function testConstructorWithInit(testCase)
-
-            % Input coeffficients
-            coefs = [
-                1 3
-                2 4 ];
-
-            % Expected values
-            coefsExpctd = coefs;
-
-            % Instantiation of target class
-            import saivdr.dictionary.utility.*
-            testCase.ppm0 = PolyPhaseMatrix1d(coefs);
-
-            % Actual values
-            coefsActual = double(testCase.ppm0);
-
-            % Evaluation
-            testCase.verifyEqual(coefsActual,coefsExpctd);
-
-        end
-
         % Test for object construction
         function testConstructorWithObj(testCase)
 
