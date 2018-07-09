@@ -1,5 +1,5 @@
 import unittest
-#from saivdr.dictionary.utility import PolyPhaseMatrix1d
+#import polyphasematrix1d
 
 class PolyPhaseMatrix1dTestCase(unittest.TestCase):
     """POLYPHASEMATRIX1dTESTCASE
@@ -12,11 +12,9 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         http://msiplab.eng.niigata-u.ac.jp/
     """
 
+'''
     def testConstructor(self):
         """Test for default construction"""
-        self.assertEqual(1,1)
-
-    '''
         # Expected values
         coefsExpctd = []
         # Instantiation of target class
@@ -48,7 +46,8 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
             testCase.verifyEqual(coefsActual,coefsExpctd);
 
         end
-
+'''
+'''
         % Test for object construction
         function testConstructorWithObj(testCase)
 

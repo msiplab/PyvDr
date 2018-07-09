@@ -3,7 +3,7 @@ import sys
 
 def suite():
     test_suite = unittest.TestSuite()
-    all_test_suite = unittest.defaultTestLoader.discover('tests', pattern='*.py')
+    all_test_suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py')
     for ts in all_test_suite:
         test_suite.addTest(ts)
     return test_suite
