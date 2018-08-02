@@ -22,109 +22,65 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Actual values
         coefsActual = self.ppm0.coefs
         # Evaluation
-        np.testing.assert_array_equal(coefsActual,coefsExpctd)        
+        np.testing.assert_array_equal(coefsActual,coefsExpctd)
 
     def testConstructorWithInit(self):
         """Test for construction with initialization"""
-
         # Input coeffficients
         coefs = np.array([ [1., 3.], [2., 4.] ]);
-
         # Expected values
         coefsExpctd = coefs
-
         # Instantiation of target class
         self.ppm0 = ppm.PolyPhaseMatrix1d(coefs);
-
         # Actual values
         coefsActual = self.ppm0.coefs
-
         # Evaluation
         np.testing.assert_array_equal(coefsActual,coefsExpctd)
 
+    def testConstructionWithObj(self):
+        """Test for object construction"""
+        # Input value
+        coefs = np.array([ [1., 3.], [2., 4. ]])
+        # Expected value
+        coefsExpctd = coefs
+        # Instantiation of target class
+        self.ppm0 = ppm.PolyPhaseMatrix1d(coefs);
+        self.ppm1 = ppm.PolyPhaseMatrix1d(self.ppm0);
+        # Actual values
+        coefsActual = self.ppm1.coefs
+        # Evaluation
+        np.testing.assert_array_equal(coefsActual,coefsExpctd)
+
+    def testString(self):
+        """Test for string """
+        # Input value
+        coefs = np.array([
+            [ [ 1., 0. ], [ 0., 0. ] ],
+            [ [ 0., 0. ], [ 2., 0. ] ],
+            [ [ 0., 3. ], [ 0., 0. ] ],
+            [ [ 0., 0. ], [ 0., 4. ] ],
+            [ [ -5., 0. ], [ 0., 0. ] ],
+            [ [ 0., 0. ], [ -6., 0. ] ],
+            [ [ 0., -7. ], [ 0., 0. ] ],
+            [ [ 0., 0., ], [ 0., -8. ] ]
+            ])
+        # Expected value
+        strExpctd = '[\n'
+        strExpctd += '\t1 - 5*(z**(-4)),\t'
+        strExpctd += '3*(z**(-2)) - 7*(z**(-6));\n'
+        strExpctd += '\t2*(z**(-1)) - 6*(z**(-5)),\t'
+        strExpctd += '4*(z**(-3)) - 8*(z**(-7))\n'
+        strExpctd += ']'
+        # Instantiation of target class
+        self.ppm0 = ppm.PolyPhaseMatrix1d(coefs)
+        # Actual values
+        strActual = str(self.ppm0)
+        # Display
+        print(self.ppm0)
+        # Evaluation
+        self.assertEquals(strActual, strExpctd)
+
 '''
-        % Test for object construction
-        function testConstructorWithObj(testCase)
-
-            % Input value
-            coefs = [
-                1 3 ;
-                2 4 ];
-
-            % Expected value
-            coefsExpctd = coefs;
-
-            % Instantiation of target class
-            import saivdr.dictionary.utility.*
-            testCase.ppm0 = PolyPhaseMatrix1d(coefs);
-            testCase.ppm1 = PolyPhaseMatrix1d(testCase.ppm0);
-
-            % Actual values
-            coefsActual = double(testCase.ppm1);
-
-            % Evaluation
-            testCase.verifyEqual(coefsActual,coefsExpctd);
-
-        end
-
-        % Test for char
-        function testChar(testCase)
-
-            % Input value
-            coefs(:,:,1) = [
-                1 0 ;
-                0 0 ];
-            coefs(:,:,2) = [
-                0 0 ;
-                2 0 ];
-            coefs(:,:,3) = [
-                0 3 ;
-                0 0 ];
-            coefs(:,:,4) = [
-                0 0 ;
-                0 4 ];
-            coefs(:,:,5) = [
-                -5 0 ;
-                0 0 ];
-            coefs(:,:,6) = [
-                0 0 ;
-                -6 0 ];
-            coefs(:,:,7) = [
-                0 -7 ;
-                0  0 ];
-            coefs(:,:,8) = [
-                0  0 ;
-                0 -8 ];
-
-            % Expected value
-            charExpctd = [...
-                '[', 10, ... % 10 -> \n
-                9, '1 - 5*z^(-4),', 9, ... % 9 -> \t
-                '3*z^(-2) - 7*z^(-6);', 10,... % 10 -> \n
-                9, '2*z^(-1) - 6*z^(-5),', 9, ... % 9 -> \t
-                '4*z^(-3) - 8*z^(-7)', 10,... % 10 -> \n
-                ']'...
-                ];
-
-            % Instantiation of target class
-            import saivdr.dictionary.utility.*
-            testCase.ppm0 = PolyPhaseMatrix1d(coefs);
-
-            % Actual values
-            charActual = char(testCase.ppm0);
-
-            % Display
-            %             disp(testCase.ppm0);
-            %             x = 1;
-            %             y = 1;
-            %             eval(char(testCase.ppm0));
-
-            % Evaluation
-            %strcmp(charExpctd,charActual)
-            testCase.verifyEqual(charActual, charExpctd);
-
-        end
-
         % Test for char with zero elements
         function testCharWithZeros(testCase)
 
