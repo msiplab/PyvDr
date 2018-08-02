@@ -13,7 +13,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         http://msiplab.eng.niigata-u.ac.jp/
     """
 
-    def testConstructor(self):
+    def test_constructor(self):
         """Test for default construction"""
         # Expected values
         coefsExpctd = []
@@ -24,7 +24,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Evaluation
         np.testing.assert_array_equal(coefsActual,coefsExpctd)
 
-    def testConstructorWithInit(self):
+    def test_constructor_with_init(self):
         """Test for construction with initialization"""
         # Input coeffficients
         coefs = np.array([ [1., 3.], [2., 4.] ]);
@@ -37,7 +37,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Evaluation
         np.testing.assert_array_equal(coefsActual,coefsExpctd)
 
-    def testConstructionWithObj(self):
+    def test_construction_with_obj(self):
         """Test for object construction"""
         # Input value
         coefs = np.array([ [1., 3.], [2., 4. ]])
@@ -51,7 +51,8 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Evaluation
         np.testing.assert_array_equal(coefsActual,coefsExpctd)
 
-    def testString(self):
+'''
+    def test_string(self):
         """Test for string """
         # Input value
         coefs = np.array([
@@ -80,7 +81,7 @@ class PolyPhaseMatrix1dTestCase(unittest.TestCase):
         # Evaluation
         self.assertEquals(strActual, strExpctd)
 
-'''
+
         % Test for char with zero elements
         function testCharWithZeros(testCase)
 
