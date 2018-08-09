@@ -9,7 +9,7 @@ def get_version(version_tuple):
     return '.'.join(map(str, version_tuple))
 
 init = os.path.join(
-    os.path.dirname(__file__), 'src', 'saivdr', '__init__.py'
+    os.path.dirname(__file__), 'saivdr', '__init__.py'
 )
 
 def strip_comments(l):
