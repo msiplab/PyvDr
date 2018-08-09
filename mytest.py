@@ -1,5 +1,7 @@
 import unittest
 import sys
+sys.path.append('src')
+
 
 def suite():
     test_suite = unittest.TestSuite()
